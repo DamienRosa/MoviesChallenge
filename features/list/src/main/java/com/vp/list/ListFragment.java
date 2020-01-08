@@ -164,6 +164,9 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
 
     @Override
     public void onItemClick(String imdbID) {
-        //TODO handle click events
+        String detailUri = "app://movies/detail";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(detailUri));
+        intent.setData(Uri.parse(detailUri+"?imdbID="+imdbID));
+        startActivity(intent);
     }
 }
