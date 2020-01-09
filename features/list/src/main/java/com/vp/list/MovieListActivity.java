@@ -52,7 +52,7 @@ public class MovieListActivity extends AppCompatActivity implements HasSupportFr
         searchView = (SearchView) menuItem.getActionView();
         searchView.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         searchView.setIconified(searchViewExpanded);
-        searchView.setQuery(searchViewText, false);
+        searchView.setQuery(searchViewText, true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
