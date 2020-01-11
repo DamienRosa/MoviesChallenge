@@ -50,7 +50,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.supportLibraryVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
-    implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
+    implementation "com.google.android.material:material:1.0.0"
 
     //api
     api "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
