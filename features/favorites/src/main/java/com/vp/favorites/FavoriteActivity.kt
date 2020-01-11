@@ -28,12 +28,16 @@ class FavoriteActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
         favoriteViewModel = ViewModelProviders.of(this, factory).get(FavoriteViewModel::class.java)
-        favoriteViewModel.fetchFavourites()
         favoriteViewModel.observeMovies().observe(this, observerMovies())
         favoriteViewModel.observeErrorText().observe(this, observerError())
         favoriteViewModel.observeProgressBar().observe(this, observerProgressBar())
 
         setupList()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        favoriteViewModel.fetchFavourites()
     }
 
     private fun setupList() {

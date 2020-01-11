@@ -44,6 +44,9 @@ class DetailsViewModel @Inject constructor(
                     title.postValue(it)
                 }
 
+                response?.body()?.let {
+                    fetchFavorite(it.imdbID)
+                }
                 loadingState.value = LoadingState.LOADED
             }
 
@@ -61,7 +64,6 @@ class DetailsViewModel @Inject constructor(
             }
             isFavorite.value = movie != null
         }
-
     }
 
     fun saveFavourite(movie: MovieDetail) {

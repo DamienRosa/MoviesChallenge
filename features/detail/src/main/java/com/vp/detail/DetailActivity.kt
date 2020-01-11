@@ -34,9 +34,8 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
             supportActionBar?.title = it
         })
         detailViewModel.details().observe(this, Observer {
-            it.let {
+            it?.let {
                 movieDetail = it
-                detailViewModel.fetchFavorite(movieDetail.imdbID)
             }
         })
         detailViewModel.isFavorite().observe(this, Observer {
