@@ -5,8 +5,9 @@ import androidx.room.Room
 import com.dgr.data.db.dao.MoviesDao
 import com.dgr.data.db.mapper.MoviesMapper
 import com.dgr.data.db.repository.MovieRepository
-import com.vp.favorites.BuildConfig
+
 import com.dgr.data.db.MoviesDataBase
+import com.vp.movies.BuildConfig
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
