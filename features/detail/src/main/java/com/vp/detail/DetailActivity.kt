@@ -13,7 +13,7 @@ import com.vp.detail.viewmodel.DetailsViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
+class DetailActivity : DaggerAppCompatActivity() {
 
     private var menuMain: Menu? = null
     private var favorite: Boolean = false
@@ -27,9 +27,8 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
         val binding: ActivityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
         detailViewModel = ViewModelProviders.of(this, factory).get(DetailsViewModel::class.java)
         binding.viewModel = detailViewModel
-        queryProvider = this
         binding.lifecycleOwner = this
-        detailViewModel.fetchDetails()
+        detailViewModel.fetchDetails(getMovieId())
         detailViewModel.title().observe(this, Observer {
             supportActionBar?.title = it
         })
@@ -69,13 +68,9 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun getMovieId(): String {
+    private fun getMovieId(): String {
         return intent?.data?.getQueryParameter("imdbID") ?: run {
             throw IllegalStateException("You must provide movie id to display details")
         }
-    }
-
-    companion object {
-        lateinit var queryProvider: QueryProvider
     }
 }
