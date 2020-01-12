@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
@@ -57,7 +59,9 @@ public class MovieListActivity extends AppCompatActivity implements HasSupportFr
             @Override
             public boolean onQueryTextSubmit(String query) {
                 ListFragment listFragment = (ListFragment) getSupportFragmentManager().findFragmentByTag(ListFragment.TAG);
-                listFragment.submitSearchQuery(query);
+                if (listFragment != null) {
+                    listFragment.submitSearchQuery(query);
+                }
                 return true;
             }
 
@@ -71,7 +75,7 @@ public class MovieListActivity extends AppCompatActivity implements HasSupportFr
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(IS_SEARCH_VIEW_ICONIFIED, searchView.isIconified());
         outState.putString(IS_SEARCH_VIEW_TEXTUALLY, searchView.getQuery().toString());
