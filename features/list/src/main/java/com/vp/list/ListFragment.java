@@ -111,7 +111,7 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
 
         // SwipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            submitSearchQuery(currentQuery);
+            listViewModel.searchMoviesByTitle(currentQuery, 1);
         });
     }
 
