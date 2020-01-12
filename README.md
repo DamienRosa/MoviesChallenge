@@ -4,8 +4,7 @@ Hello future colleagues!
 
 # About the project
 
-It contains three gradle modules called `list`, `detail` and `favorites`. `List` module is written in Java and `detail` module is written in Kotlin. 
-We left `favorites` module empty to let you make choice of language.
+It contains three gradle modules called `list`, `detail`, `favorites` and `data`. `List` module is written in Java and  `detail`, `favorites` and `data` are modules written in Kotlin. 
 
 # Notes for the Challenges
 1. The Wrong State - we took care of fetching the data remotely from the api. So the app is supposed to show a list of posters, but instead it still displays the progress bar. Can you find where the problem is and fix it? And to make sure we won't make the same mistake twice write a simple unit test.
