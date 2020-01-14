@@ -43,8 +43,8 @@ class DetailsViewModel @Inject constructor(
                     title.postValue(it)
                 }
 
-                response?.body()?.let {
-                    fetchFavorite(it.imdbID)
+                response?.body()?.imdbID?.let {
+                    fetchFavorite(it)
                 }
                 loadingState.value = LoadingState.LOADED
             }
